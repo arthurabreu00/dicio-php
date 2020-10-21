@@ -85,4 +85,9 @@ class TestDicio extends TestCase
         $this->assertObjectHasAttribute('extras', $data);
     }
 
+    public function test_search_on_failed(){
+        $this->expectException('GuzzleHttp\Exception\GuzzleException');
+        $this->dicio->search('aaaaaaaa');
+    }
+
 }

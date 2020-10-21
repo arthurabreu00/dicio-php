@@ -5,6 +5,7 @@ require_once 'vendor/autoload.php';
 
 $dicio = new ArthurTavaresDev\Dicio\Dicio();
 
-$word = $dicio->search('doce');
+$dicio = new Dicio;
+$word = $dicio->search('batata'); // Objeto com os dados
 
-print_r($word);
+print_r($word->etymology);

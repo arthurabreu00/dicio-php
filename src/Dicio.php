@@ -61,19 +61,29 @@ class Dicio
     public function meaning(SymfonyCrawler $page)
     {
         $result = $page->filter(self::HTML_SELECTOR_MEANING)->filter('br+span');
-        return $result->each(function ($content) {
-            $meaning = trim($content->text(false));
-            if (!$meaning && in_array($content->attr('class'), [self::HTML_SELECTOR_ETYMOLOGY, 'cl'])) {
+        $meaning = $result->each(function (SymfonyCrawler $content) {
+            $meaning = trim($content->text(''));
+            if (empty($meaning) || in_array('.' . trim($content->attr('class')), [self::HTML_SELECTOR_ETYMOLOGY, '.cl'])) {
                 return false;
             }
 
             return trim($meaning);
         });
+
+        return array_filter($meaning, function ($item){
+            return !empty($item);
+        });
     }
 
     public function etymology(SymfonyCrawler $page)
     {
-        return trim($page->filter(self::HTML_SELECTOR_ETYMOLOGY)->text(null));
+        $etymology =  trim($page->filter(self::HTML_SELECTOR_ETYMOLOGY)->text(''));
+        $pos = strpos( $etymology, ').');
+        if($pos !== false){
+            $etymology = substr($etymology, $pos + 2);
+        }
+
+        return $etymology;
     }
 
     /**
@@ -83,7 +93,7 @@ class Dicio
      */
     public function synonyms(SymfonyCrawler $page)
     {
-        $result = $page->filter(self::HTML_SELECTOR_SYNONYMS)->text(false);
+        $result = $page->filter(self::HTML_SELECTOR_SYNONYMS)->text('');
         $synonyms = explode(',', $result);
         return array_map('trim', $synonyms);
     }
@@ -97,8 +107,8 @@ class Dicio
     {
         $result = $page->filter(self::HTML_SELECTOR_PHRASE);
 
-        return $result->each(function ($content) {
-            $content = trim($content->text(false));
+        return $result->each(function (SymfonyCrawler $content) {
+            $content = trim($content->text(''));
             if (empty($content)) {
                 return false;
             }
@@ -113,9 +123,9 @@ class Dicio
      */
     public function extras(SymfonyCrawler $page)
     {
-        $result = $page->filter(self::HTML_SELECTOR_EXTRA)->filter('span');
-        return $result->each(function ($content) {
-            $content = trim($content->text(false));
+        $result = $page->filter(self::HTML_SELECTOR_EXTRA)->filter('br+span');
+        return $result->each(function (SymfonyCrawler $content) {
+            $content = trim($content->text(''));
             if (empty($content)) {
                 return false;
             }
