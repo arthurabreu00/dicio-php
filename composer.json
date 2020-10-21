@@ -1,0 +1,34 @@
+{
+    "name": "arthurtavaresdev/dicio-php",
+    "description": "This project is a crawler of the website dicio.com.br, a dictionary in Portuguese",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Arthur Tavares",
+            "email": "arthurabreu00@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=7.2.5",
+        "symfony/dom-crawler": "^5.1"  ,
+        "symfony/css-selector" : "^5.0",
+        "guzzlehttp/guzzle": "^7.1@dev"
+    },
+    "require-dev": {
+        "phpunit/phpunit": "^8.4"
+    },
+    "autoload": {
+        "classmap": [
+            "src"
+        ],
+        "psr-4": {
+            "arthurtavaresdev\\Dicio\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "arthurtavaresdev\\Dicio\\Tests\\": "tests"
+        }
+    },
+    "minimum-stability": "dev"
+}
