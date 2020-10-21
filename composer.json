@@ -29,6 +29,5 @@
         "psr-4": {
             "arthurtavaresdev\\Dicio\\Tests\\": "tests"
         }
-    },
-    "minimum-stability": "dev"
+    }
 }
