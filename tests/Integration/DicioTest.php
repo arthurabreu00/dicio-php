@@ -1,4 +1,5 @@
 <?php
+
 namespace ArthurTavaresDev\Dicio\Tests\Integration;
 
 use ArthurTavaresDev\Dicio\Data\Word;
@@ -19,14 +20,15 @@ class DicioTest extends TestCase
         $this->dicio = new Dicio();
     }
 
-    public function test_search(){
+    public function test_search()
+    {
         $data = $this->dicio->search('doce');
         $this->assertInstanceOf(Word::class, $data);
     }
 
-    public function test_search_on_failed(){
+    public function test_search_on_failed()
+    {
         $this->expectException(GuzzleException::class);
         $this->dicio->search('aaaaaaaa');
     }
-
 }

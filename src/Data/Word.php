@@ -15,40 +15,39 @@ readonly class Word
 
 
     /**
-     * @var array<string> $meaning
+     * @var array<string>
      */
     public array $meaning;
 
     /**
-     * @var string $etymology
+     * @var string
      */
     public string $etymology;
 
     /**
-     * @var array<string> $synonyms
+     * @var array<string>
      */
     public array $synonyms;
 
     /**
-     * @var array<string> $examples
+     * @var array<string>
      */
     public array $examples;
 
     /**
-     * @var array<string> $extras
+     * @var array<string>
      */
     public array $extras;
 
     /**
-     * @var array<string> $rhymes
+     * @var array<string>
      */
     public array $rhymes;
 
     public function __construct(
         private SymfonyCrawler $page,
         public string $url
-    )
-    {
+    ) {
         $this->meaning = $this->meaning();
         $this->etymology = $this->etymology();
         $this->synonyms = $this->synonyms();
@@ -73,16 +72,16 @@ readonly class Word
             return $meaning;
         });
 
-        return array_filter($meaning, static function ($item){
-            return !empty($item);
+        return array_filter($meaning, static function ($item) {
+            return ! empty($item);
         });
     }
 
     public function etymology(): string
     {
         $etymology = $this->page->filter(self::HTML_SELECTOR_ETYMOLOGY)->text();
-        $pos = strpos( $etymology, ').');
-        if($pos !== false){
+        $pos = strpos($etymology, ').');
+        if($pos !== false) {
             $etymology = substr($etymology, $pos + 2);
         }
 
@@ -114,6 +113,7 @@ readonly class Word
             if (empty($content)) {
                 return false;
             }
+
             return $content;
 
         });
@@ -129,8 +129,8 @@ readonly class Word
                     return false;
                 }
 
-            return $content;
-        });
+                return $content;
+            });
     }
 
     public function rhymes(): array
