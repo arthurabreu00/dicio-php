@@ -1,12 +1,12 @@
 <?php
 
-namespace ArthurTavaresDev\Dicio;
+namespace ArthurTavaresDev\Dicio\Utils;
 
-class Utils
+class Str
 {
     public static function clear_string(string $string) : string {
         $clear_string = self::remove_accents($string);
-        return trim(strtolower($clear_string));
+        return strtolower(trim($clear_string));
     }
 
     /**

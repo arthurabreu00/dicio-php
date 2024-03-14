@@ -9,27 +9,27 @@
         }
     ],
     "require": {
-        "php": ">=7.2.5",
+        "php": "^8.2",
         "symfony/dom-crawler": "^5.1"  ,
         "symfony/css-selector" : "^5.0",
-        "guzzlehttp/guzzle": "^7.1@dev"
+        "guzzlehttp/guzzle": "^7.8"
     },
     "require-dev": {
-        "phpunit/phpunit": "^8.4"
+        "phpunit/phpunit": "^11.0"
     },
     "autoload": {
         "classmap": [
             "src"
         ],
         "psr-4": {
-            "arthurtavaresdev\\Dicio\\": "src"
+            "ArthurTavaresDev\\Dicio\\": "src"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "arthurtavaresdev\\Dicio\\Tests\\": "tests"
+            "ArthurTavaresDev\\Dicio\\Tests\\": "tests"
         }
     },
     "minimum-stability": "dev",
-    "prefer-stable": false
+    "prefer-stable": true
 }

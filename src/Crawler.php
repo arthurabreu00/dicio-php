@@ -1,6 +1,5 @@
 <?php
 
-
 namespace ArthurTavaresDev\Dicio;
 
 use GuzzleHttp\Exception\GuzzleException;
@@ -10,14 +9,13 @@ use GuzzleHttp\Client;
 
 class Crawler
 {
-
     /**
      * @param String $url
      * @param array $params
      * @return SymfonyCrawler
      * @throws GuzzleException
      */
-    public static function page(String $url, array $params = [])
+    public static function page(String $url, array $params = []): SymfonyCrawler
     {
         $client = new Client(['verify' => false]); // ignore ssl verify
         $response = $client->get($url, ['query' => $params]);

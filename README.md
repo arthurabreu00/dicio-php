@@ -1,26 +1,12 @@
 # Dicio
-Este projeto , tem o objetivo de ser um **leitor não oficial**, do site [Dicio](https://www.dicio.com.br/) o qual é uma versão online de um **Dicionário** da língua portuguesa;
+Este projeto, tem o objetivo de ser um **leitor não oficial**, do site [Dicio](https://www.dicio.com.br/) o qual é uma versão online de um **Dicionário** da língua portuguesa;
  
 ---- 
-Este projeto foi inspirado, em outro projeto muito semelhante : [Dicio em Python](https://github.com/felipemfp/dicio)
+Este projeto foi inspirado, em outro projeto muito semelhante: [Dicio em Python](https://github.com/felipemfp/dicio)
 
 ## Instalação
 
-No arquivo `composer.json`, adicione o dicio como dependência do seu projeto:
-
-```
-"require": {
-    "arthurtavares/dicio-php" : "^0.1"
- },
-```
-
-Depois execute:
-
-```
-composer install
-```
-
-Ou simplesmente execute o comando:
+Instale o pacote via composer:
 
 ```
 composer require arthurtavares/dicio-php
@@ -28,8 +14,8 @@ composer require arthurtavares/dicio-php
 
 ## Como usar
 ```php
-    $dicio = new Dicio;
-    // Objeto com os dados de "significado, etimologia, sinonimos, exemplos e dados extras"
+    $dicio = new \ArthurTavaresDev\Dicio\Dicio;
+    // Objeto com os dados de "significado, etimologia, sinônimos, exemplos e dados extras"
     $word = $dicio->search('casa'); 
 
     // Significado
@@ -54,7 +40,7 @@ composer require arthurtavares/dicio-php
     /* Resposta: A palavra casa deriva do latim "casa,ae", com o sentido de cabana. */
 
 
-    // Lista de Sinonimos (array)
+    // Lista de Sinônimos (array)
     $synonyms = $word->synonyms;  
     /**
         Resposta:
@@ -88,9 +74,5 @@ composer require arthurtavares/dicio-php
    // Url
     $url = $word->url;
     /* Resultado: http://www.dicio.com.br/casa */
-
-    
-
-    
 
 ```
