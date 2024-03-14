@@ -7,7 +7,8 @@ use PHPUnit\Framework\TestCase;
 
 class StrTest extends TestCase
 {
-    public function test_format_url(){
+    public function test_format_url()
+    {
         $url = Str::format_url('example.com');
         $this->assertEquals('example.com/', $url);
 
@@ -19,14 +20,15 @@ class StrTest extends TestCase
         $this->assertEquals('example.com/example?random=1311/', $url);
     }
 
-    public function test_remove_accents(){
+    public function test_remove_accents()
+    {
         $string = 'èaíáâãôOÕÔIiÌ)(-óàá';
-        $this->assertEquals('eaiaaaoOOOIiI)(-oaa',Str::remove_accents($string));
+        $this->assertEquals('eaiaaaoOOOIiI)(-oaa', Str::remove_accents($string));
     }
 
-    public function test_clear_string(){
+    public function test_clear_string()
+    {
         $string = 'èaíáâãôOÕÔIiÌ)(-óàá';
-        $this->assertEquals('eaiaaaooooiii)(-oaa',Str::clear_string($string));
+        $this->assertEquals('eaiaaaooooiii)(-oaa', Str::clear_string($string));
     }
-
 }

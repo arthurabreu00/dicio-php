@@ -31,7 +31,7 @@ class Dicio
 
         $url = Str::format_url(self::BASE_URL) . Str::clear_string($word);
         $page = Crawler::page($url);
-        if (!is_object($page)) {
+        if (! is_object($page)) {
             throw new UnavailableServiceException();
         }
 

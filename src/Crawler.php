@@ -2,10 +2,9 @@
 
 namespace ArthurTavaresDev\Dicio;
 
+use GuzzleHttp\Client;
 use GuzzleHttp\Exception\GuzzleException;
 use Symfony\Component\DomCrawler\Crawler as SymfonyCrawler;
-use GuzzleHttp\Client;
-
 
 class Crawler
 {
@@ -20,6 +19,7 @@ class Crawler
         $client = new Client(['verify' => false]); // ignore ssl verify
         $response = $client->get($url, ['query' => $params]);
         $html = $response->getBody()->getContents();
+
         return new SymfonyCrawler($html);
     }
 }
