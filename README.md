@@ -1,4 +1,10 @@
 # Dicio
+
+[![Run Tests](https://github.com/arthurtavaresdev/dicio-php/actions/workflows/run-tests.yml/badge.svg)](https://github.com/arthurtavaresdev/dicio-php/actions/workflows/run-tests.yml)
+[![Check & fix styling](https://github.com/arthurtavaresdev/dicio-php/actions/workflows/php-cs-fixer.yml/badge.svg)](https://github.com/arthurtavaresdev/dicio-php/actions/workflows/php-cs-fixer.yml)
+![Packagist](https://img.shields.io/packagist/dt/arthurtavaresdev/dicio-php)
+[![All Contributors](https://img.shields.io/badge/all_contributors-1-orange.svg)](#contributors)
+
 Este projeto, tem o objetivo de ser um **leitor não oficial**, do site [Dicio](https://www.dicio.com.br/) o qual é uma versão online de um **Dicionário** da língua portuguesa;
  
 ---- 
