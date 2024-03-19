@@ -15,7 +15,7 @@ Este projeto foi inspirado, em outro projeto muito semelhante: [Dicio em Python]
 Instale o pacote via composer:
 
 ```
-composer require arthurtavares/dicio-php
+composer require arthurtavaresdev/dicio-php
 ```
 
 ## Como usar
