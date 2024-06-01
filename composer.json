@@ -11,7 +11,7 @@
     "require": {
         "php": "^8.2",
         "symfony/dom-crawler": "^5.1"  ,
-        "symfony/css-selector" : "^5.0",
+        "symfony/css-selector" : "^7.1",
         "guzzlehttp/guzzle": "^7.8",
         "ext-simplexml": "*",
         "ext-json": "*"
